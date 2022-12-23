@@ -18,9 +18,11 @@ final class LoginCoordinator<R: AppRouter> {
 
 extension LoginCoordinator: Coordinator {
     var primaryViewController: UIViewController {
-        let loginView = LoginView()
-        let LoginViewController = UIHostingController(rootView: loginView)
-        return LoginViewController
+        let viewModel = LoginViewModel<R>()
+        let loginView = LoginView(viewModel: viewModel)
+        let loginViewController = UIHostingController(rootView: loginView)
+        loginViewController.title = "Log in"
+        return loginViewController
     }
     
     func start() {
