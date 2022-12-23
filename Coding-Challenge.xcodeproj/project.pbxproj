@@ -20,6 +20,8 @@
 		3BA8579F29560C5600847783 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8579E29560C5600847783 /* LoginCoordinator.swift */; };
 		3BA857A129560D2000847783 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857A029560D2000847783 /* App.swift */; };
 		3BA857A32956138F00847783 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857A22956138F00847783 /* LoginView.swift */; };
+		3BA857AA29561A6B00847783 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857A929561A6B00847783 /* APIManager.swift */; };
+		3BA857AD29561CE400847783 /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857AC29561CE400847783 /* Failure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		3BA8579E29560C5600847783 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		3BA857A029560D2000847783 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		3BA857A22956138F00847783 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3BA857A929561A6B00847783 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		3BA857AC29561CE400847783 /* Failure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		3BA857612955FB7400847783 /* Coding-Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				3BA857A429561A0B00847783 /* Networking */,
 				3BA8579229560A9900847783 /* Protocols */,
 				3BA8579A29560BD700847783 /* Views */,
 				3BA857622955FB7400847783 /* AppDelegate.swift */,
@@ -177,6 +182,31 @@
 				3BA857A22956138F00847783 /* LoginView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3BA857A429561A0B00847783 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3BA857AB29561CD200847783 /* Error */,
+				3BA857A829561A5100847783 /* API */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3BA857A829561A5100847783 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3BA857A929561A6B00847783 /* APIManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		3BA857AB29561CD200847783 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				3BA857AC29561CE400847783 /* Failure.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BA857AD29561CE400847783 /* Failure.swift in Sources */,
 				3BA8579F29560C5600847783 /* LoginCoordinator.swift in Sources */,
+				3BA857AA29561A6B00847783 /* APIManager.swift in Sources */,
 				3BA8579729560AE600847783 /* Router.swift in Sources */,
 				3BA857632955FB7400847783 /* AppDelegate.swift in Sources */,
 				3BA8579929560B1100847783 /* AppTransition.swift in Sources */,
