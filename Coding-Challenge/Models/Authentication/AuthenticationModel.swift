@@ -12,9 +12,9 @@ struct RequestToken: Codable {
     let expiresAt: String
     let token: String
     
-    enum CodingKeys: CodingKey {
+    enum CodingKeys: String, CodingKey {
         case success
-        case expiresAt
-        case token
+        case expiresAt = "expires_at"
+        case token = "request_token"
     }
 }
