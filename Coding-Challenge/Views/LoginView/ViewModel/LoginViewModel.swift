@@ -11,12 +11,13 @@ import Combine
 protocol LoginViewModelRepresentable {
     func requestToken()
     func login(userName: String, password: String, requestToken: RequestToken)
+    func showHomeView()
     var loadSubject: PassthroughSubject<Bool, Never> { get }
     var requestTokenSubject: PassthroughSubject<RequestToken, Failure> { get }
 }
 
 final class LoginViewModel<R: AppRouter> {
-    weak var router: R?
+    var router: R?
     
     private let loginStore: LoginStore
     private var cancellables = Set<AnyCancellable>()
@@ -67,4 +68,7 @@ extension LoginViewModel: LoginViewModelRepresentable {
             .store(in: &cancellables)
     }
     
+    func showHomeView() {
+        router?.process(route: .showHomeScreen)
+    }
 }

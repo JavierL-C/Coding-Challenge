@@ -58,7 +58,7 @@ struct LoginView: View {
                             .cornerRadius(5)
                         
                         Button(action: {
-                            pressButtonLogin()
+                            didTapButtonLogin()
                         }) {
                             Text("Log in")
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -76,7 +76,7 @@ struct LoginView: View {
         }
     }
     
-    private func pressButtonLogin() {
+    private func didTapButtonLogin() {
         isLoading = true
         viewModel?.requestToken()
 
@@ -93,6 +93,9 @@ struct LoginView: View {
         
         viewModel?.loadSubject.sink(receiveCompletion: { _ in }, receiveValue: { isLoading in
             self.isLoading = isLoading
+            DispatchQueue.main.async {
+                viewModel?.showHomeView()
+            }
         }).store(in: &cancellables)
     }
 }
