@@ -29,6 +29,8 @@
 		3BA857C729579D6400847783 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857C529579D6400847783 /* HomeViewController.swift */; };
 		3BA857C829579D6400847783 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA857C629579D6400847783 /* HomeViewController.xib */; };
 		3BA857CB2957A07E00847783 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857CA2957A07E00847783 /* HomeViewModel.swift */; };
+		3BA857CD2957B16800847783 /* APIManager+TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857CC2957B16800847783 /* APIManager+TVShow.swift */; };
+		3BA857CF2957B47600847783 /* TVShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857CE2957B47600847783 /* TVShows.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		3BA857C529579D6400847783 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3BA857C629579D6400847783 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		3BA857CA2957A07E00847783 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		3BA857CC2957B16800847783 /* APIManager+TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+TVShow.swift"; sourceTree = "<group>"; };
+		3BA857CE2957B47600847783 /* TVShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShows.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,7 @@
 			children = (
 				3BA857A929561A6B00847783 /* APIManager.swift */,
 				3BA857B729565BC500847783 /* APIManager+Login.swift */,
+				3BA857CC2957B16800847783 /* APIManager+TVShow.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				3BA857B429565A1800847783 /* Authentication */,
+				3BA857CE2957B47600847783 /* TVShows.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -413,9 +419,11 @@
 				3BA857B829565BC500847783 /* APIManager+Login.swift in Sources */,
 				3BA8579F29560C5600847783 /* LoginCoordinator.swift in Sources */,
 				3BA857CB2957A07E00847783 /* HomeViewModel.swift in Sources */,
+				3BA857CF2957B47600847783 /* TVShows.swift in Sources */,
 				3BA857B029562CE100847783 /* LoginViewModel.swift in Sources */,
 				3BA857AA29561A6B00847783 /* APIManager.swift in Sources */,
 				3BA857C729579D6400847783 /* HomeViewController.swift in Sources */,
+				3BA857CD2957B16800847783 /* APIManager+TVShow.swift in Sources */,
 				3BA857BF2956CF0900847783 /* HomeCoordinator.swift in Sources */,
 				3BA8579729560AE600847783 /* Router.swift in Sources */,
 				3BA857632955FB7400847783 /* AppDelegate.swift in Sources */,
