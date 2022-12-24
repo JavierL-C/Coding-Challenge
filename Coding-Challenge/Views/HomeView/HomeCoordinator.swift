@@ -18,7 +18,9 @@ final class HomeCoordinator<R: AppRouter> {
 
 extension HomeCoordinator: Coordinator {
     var primaryViewController: UIViewController {
-        let homeViewController = HomeViewController()
+        let viewModel = HomeViewModel<R>()
+        viewModel.router = router
+        let homeViewController = HomeViewController(viewModel: viewModel)
         homeViewController.modalPresentationStyle = .overFullScreen
         return homeViewController
     }
