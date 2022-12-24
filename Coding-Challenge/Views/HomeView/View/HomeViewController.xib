@@ -21,11 +21,14 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="j4O-4M-dax">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="j4O-4M-dax">
                     <rect key="frame" x="10" y="57" width="370" height="753"/>
                     <subviews>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-ML-Cpy">
-                            <rect key="frame" x="0.0" y="0.0" width="370" height="32"/>
+                            <rect key="frame" x="0.0" y="0.0" width="370" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Ayb-yu-F5O"/>
+                            </constraints>
                             <segments>
                                 <segment title="Popular"/>
                                 <segment title="Top Rated"/>
@@ -34,7 +37,7 @@
                             </segments>
                         </segmentedControl>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xxX-Y6-ie5">
-                            <rect key="frame" x="0.0" y="46" width="370" height="707"/>
+                            <rect key="frame" x="0.0" y="45" width="370" height="708"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uE2-bi-7Jh">
                                 <size key="itemSize" width="128" height="128"/>
