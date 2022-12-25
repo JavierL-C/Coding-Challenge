@@ -38,12 +38,13 @@ class HomeViewController: UIViewController {
     private func generateLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                                  heightDimension: .estimated(200))
+                                                  heightDimension: .fractionalHeight(1.0))
 
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = .init(top: 5, leading: 5, bottom: 5, trailing: 5)
 
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                   heightDimension: .estimated(200))
+                                                   heightDimension: .estimated(350))
 
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
@@ -61,16 +62,20 @@ class HomeViewController: UIViewController {
     }
     
     private func setUI() {
+        filterTVShowsView.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+        view.backgroundColor = UIColor(named: "Almost Black")
         title = "TV Shows"
         viewModel.fetchTVShows()
+        collectionView.backgroundColor = UIColor(named: "Almost Black")
         collectionView.collectionViewLayout = generateLayout()
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.refreshControl = refreshControl
+        setUpDiffableDataSource()
     }
     
     private func bindUI() {
-        subscription = viewModel.TVSHhowsSubject.sink { _ in}
+        subscription = viewModel.tvShowsSubject.sink { _ in}
         receiveValue: { [unowned self] tvShows in
-            print(tvShows)
             applySnapshot(tvShows: tvShows)
         }
     }
