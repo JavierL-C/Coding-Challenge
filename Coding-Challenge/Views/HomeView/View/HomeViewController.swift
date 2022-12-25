@@ -76,8 +76,8 @@ class HomeViewController: UIViewController {
     }
     
     private func setUpDiffableDataSource() {
-        let tvShowCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, TVShow> {  cell, _, tvShow in
-            cell.backgroundColor = .red
+        let tvShowCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, TVShow> { [weak self]  cell, _, tvShow in
+            self?.setSwiftUIView(cell: cell, tvShow: tvShow)
         }
         
         dataSource = { [unowned self] in
@@ -93,5 +93,17 @@ class HomeViewController: UIViewController {
         snapshot.appendSections([Section.main])
         snapshot.appendItems(tvShows, toSection: .main)
         dataSource?.apply(snapshot)
+    }
+    
+    private func setSwiftUIView(cell: UICollectionViewCell, tvShow: TVShow) {
+        let hostingController = UIHostingController(rootView: TVShowCellView(tvShow: tvShow))
+        cell.addSubview(hostingController.view)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        [
+            hostingController.view.topAnchor.constraint(equalTo: cell.topAnchor),
+            hostingController.view.rightAnchor.constraint(equalTo: cell.rightAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
+            hostingController.view.leftAnchor.constraint(equalTo: cell.leftAnchor)
+        ].forEach { $0.isActive = true }
     }
 }

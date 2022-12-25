@@ -10,7 +10,7 @@ import Foundation
 struct TVShow: Codable, Equatable, Hashable {
     let id: Int
     let backgroundPath: String
-    let voteAverage: Int
+    let voteAverage: Double
     let overview: String
     let name: String
     let firstAirDate: String
