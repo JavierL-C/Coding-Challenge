@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol HomeViewModelRepresentable {
-    func fetchTVShows()
+    func fetchTVShows(filter: FilterTVShows)
     var tvShowsSubject: PassthroughSubject<[TVShow], Failure> { get }
 }
 
@@ -33,8 +33,9 @@ final class HomeViewModel<R: AppRouter> {
 }
 
 extension HomeViewModel: HomeViewModelRepresentable {
-    func fetchTVShows() {
-        tvShowsStore.fetchTVShowsBy(filter: .popular, page: 1).sink { [unowned self] completion in
+    func fetchTVShows(filter: FilterTVShows) {
+        
+        tvShowsStore.fetchTVShowsBy(filter: filter, page: 1).sink { [unowned self] completion in
             switch  completion {
             case .finished:
                 break

@@ -36,6 +36,9 @@
                                 <segment title="Airing Today"/>
                             </segments>
                             <color key="selectedSegmentTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="filterTVShowValueChanged:" destination="-1" eventType="valueChanged" id="o8l-oW-ffA"/>
+                            </connections>
                         </segmentedControl>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xxX-Y6-ie5">
                             <rect key="frame" x="0.0" y="45" width="370" height="708"/>

@@ -22,9 +22,13 @@ class HomeViewController: UIViewController {
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, TVShow>
     
     private let viewModel: HomeViewModelRepresentable
-    private let refreshControl = UIRefreshControl()
     private var subscription: AnyCancellable?
     private var dataSource: DataSource?
+    private var filterTVShow: FilterTVShows = .popular {
+        didSet {
+            self.viewModel.fetchTVShows(filter: filterTVShow)
+        }
+    }
     
     init(viewModel: HomeViewModelRepresentable) {
         self.viewModel = viewModel
@@ -65,11 +69,10 @@ class HomeViewController: UIViewController {
         filterTVShowsView.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         view.backgroundColor = UIColor(named: "Almost Black")
         title = "TV Shows"
-        viewModel.fetchTVShows()
+        viewModel.fetchTVShows(filter: filterTVShow)
         collectionView.backgroundColor = UIColor(named: "Almost Black")
         collectionView.collectionViewLayout = generateLayout()
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.refreshControl = refreshControl
         setUpDiffableDataSource()
     }
     
@@ -111,4 +114,9 @@ class HomeViewController: UIViewController {
             hostingController.view.leftAnchor.constraint(equalTo: cell.leftAnchor)
         ].forEach { $0.isActive = true }
     }
+    
+    @IBAction func filterTVShowValueChanged(_ sender: UISegmentedControl) {
+        filterTVShow = FilterTVShows(rawValue: sender.selectedSegmentIndex) ?? .popular
+    }
+
 }

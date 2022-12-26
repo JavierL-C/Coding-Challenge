@@ -40,7 +40,7 @@ extension APIManager: TVShowsStore {
     }
 }
 
-enum FilterTVShows {
+enum FilterTVShows: Int {
     case popular
     case topRated
     case onTV

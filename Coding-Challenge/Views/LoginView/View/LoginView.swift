@@ -78,7 +78,6 @@ struct LoginView: View {
     
     private func didTapButtonLogin() {
         isLoading = true
-        viewModel?.requestToken()
 
         viewModel?.requestTokenSubject.sink { completion in
             switch completion {
@@ -93,10 +92,13 @@ struct LoginView: View {
         
         viewModel?.loadSubject.sink(receiveCompletion: { _ in }, receiveValue: { isLoading in
             self.isLoading = isLoading
+            cancellables.forEach { $0.cancel() }
             DispatchQueue.main.async {
                 viewModel?.showHomeView()
             }
         }).store(in: &cancellables)
+        
+        viewModel?.requestToken()
     }
 }
 
