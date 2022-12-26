@@ -10,20 +10,20 @@ import Combine
 
 protocol LoginViewModelRepresentable {
     func requestToken()
-    func login(userName: String, password: String, requestToken: RequestToken)
+    func login(requestToken: RequestToken)
     func showHomeView()
-    var loadSubject: PassthroughSubject<Bool, Never> { get }
-    var requestTokenSubject: PassthroughSubject<RequestToken, Failure> { get }
 }
 
-final class LoginViewModel<R: AppRouter> {
+final class LoginViewModel<R: AppRouter>: ObservableObject {
     var router: R?
     
     private let loginStore: LoginStore
     private var cancellables = Set<AnyCancellable>()
     
-    let requestTokenSubject = PassthroughSubject<RequestToken, Failure>()
-    let loadSubject = PassthroughSubject<Bool, Never>()
+    @Published var userName = ""
+    @Published var password = ""
+    @Published var isLoading = false
+    @Published var isLoginFail = false
     
     init(loginStore: LoginStore = APIManager()) {
         self.loginStore = loginStore
@@ -33,6 +33,7 @@ final class LoginViewModel<R: AppRouter> {
 extension LoginViewModel: LoginViewModelRepresentable {
 
     func requestToken() {
+        isLoading = true
         loginStore.createRequestToken()
             .sink { completion in
                 switch completion  {
@@ -43,27 +44,35 @@ extension LoginViewModel: LoginViewModelRepresentable {
                         break
                 }
             } receiveValue: { [unowned self] requestToken in
-                requestTokenSubject.send(requestToken)
+                login(requestToken: requestToken)
             }
             .store(in: &cancellables)
     }
     
-    func login(userName: String, password: String, requestToken: RequestToken) {
+    func login(requestToken: RequestToken) {
         let defaults = UserDefaults.standard
         
         loginStore.login(userName: userName, password: password, token: requestToken.token)
-            .sink { completion in
+            .sink { [unowned self] completion in
                 switch completion  {
                     case .finished:
                         break
                     case .failure(let failure):
                         print("something went wrong " + failure.localizedDescription)
+                        DispatchQueue.main.async { [unowned self] in
+                            isLoginFail = true
+                            isLoading = false
+                        }
                         break
                 }
             } receiveValue: { [unowned self] requestToken in
                 defaults.setValue(requestToken.token, forKey: "token")
                 defaults.setValue(requestToken.expiresAt, forKey: "expires")
-                loadSubject.send(false)
+                DispatchQueue.main.async { [unowned self] in
+                    password = ""
+                    isLoading = false
+                    showHomeView()
+                }
             }
             .store(in: &cancellables)
     }

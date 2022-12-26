@@ -8,21 +8,13 @@
 import SwiftUI
 import Combine
 
-struct LoginView: View {
+struct LoginView<R: AppRouter>: View {
     
-    @State private var userName = ""
-    @State private var password = ""
-    @State private var isLoading = false
-    @State private var cancellables = Set<AnyCancellable>()
+    @StateObject var viewModel = LoginViewModel<R>()
+    private var router: R?
     
-    var viewModel: LoginViewModelRepresentable?
-    
-    init(viewModel: LoginViewModelRepresentable) {
-        self.viewModel = viewModel
-    }
-    
-    init() {
-        // init just for preview
+    init(router: R) {
+        self.router = router
     }
     
     private let gradients = Gradient(stops: [
@@ -42,7 +34,7 @@ struct LoginView: View {
                         Spacer()
                             .frame(height: 82)
                         
-                        TextField("Username", text: $userName)
+                        TextField("Username", text: $viewModel.userName)
                             .autocapitalization(.none)
                             .font(.system(size: 20, weight: .bold, design: .monospaced))
                             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
@@ -50,7 +42,7 @@ struct LoginView: View {
                             .background(Color.white)
                             .cornerRadius(5)
                         
-                        SecureField("Pasword", text: $password)
+                        SecureField("Pasword", text: $viewModel.password)
                             .font(.system(size: 20, weight: .bold, design: .monospaced))
                             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
                             .frame(width: 300, height: 60)
@@ -58,7 +50,8 @@ struct LoginView: View {
                             .cornerRadius(5)
                         
                         Button(action: {
-                            didTapButtonLogin()
+                            viewModel.router = router
+                            viewModel.requestToken()
                         }) {
                             Text("Log in")
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -72,39 +65,16 @@ struct LoginView: View {
                     }
                 )
             
-            if isLoading { LoadingView() }
+            if viewModel.isLoading { LoadingView() }
         }
-    }
-    
-    private func didTapButtonLogin() {
-        isLoading = true
-
-        viewModel?.requestTokenSubject.sink { completion in
-            switch completion {
-                case .finished:
-                    print("Log in success", completion)
-                case .failure(_):
-                    break
-            }
-        } receiveValue: { requestToken in
-            viewModel?.login(userName: userName, password: password, requestToken: requestToken)
-        }.store(in: &cancellables)
-        
-        viewModel?.loadSubject.sink(receiveCompletion: { _ in }, receiveValue: { isLoading in
-            self.isLoading = isLoading
-            cancellables.forEach { $0.cancel() }
-            DispatchQueue.main.async {
-                viewModel?.showHomeView()
-            }
-        }).store(in: &cancellables)
-        
-        viewModel?.requestToken()
-    }
-}
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
+        .alert(isPresented: $viewModel.isLoginFail) {
+            Alert(
+                title: Text("Error"),
+                message: Text("User name or password are incorrect"),
+                dismissButton: .default(Text("Ok")) {
+                    viewModel.isLoginFail = false
+            })
+        }
     }
 }
 
