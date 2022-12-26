@@ -18,9 +18,7 @@ final class LoginCoordinator<R: AppRouter> {
 
 extension LoginCoordinator: Coordinator {
     var primaryViewController: UIViewController {
-        let viewModel = LoginViewModel<R>()
-        viewModel.router = router
-        let loginView = LoginView(viewModel: viewModel)
+        let loginView = LoginView<R>(router: router)
         let loginViewController = UIHostingController(rootView: loginView)
         return loginViewController
     }

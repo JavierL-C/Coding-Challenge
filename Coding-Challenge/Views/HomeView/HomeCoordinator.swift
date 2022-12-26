@@ -18,12 +18,14 @@ final class HomeCoordinator<R: AppRouter> {
 
 extension HomeCoordinator: Coordinator {
     var primaryViewController: UIViewController {
-        let homeViewController = HomeViewController()
-        homeViewController.modalPresentationStyle = .overFullScreen
+        let viewModel = HomeViewModel<R>()
+        viewModel.router = router
+        let homeViewController = HomeViewController(viewModel: viewModel)
+        homeViewController.modalPresentationStyle = .fullScreen
         return homeViewController
     }
     
     func start() {
-        router.navigationController.show(self.primaryViewController, sender: true)
+        router.navigationController.present(self.primaryViewController, animated: true)
     }
 }
