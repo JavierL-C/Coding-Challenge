@@ -20,6 +20,8 @@ final class HomeViewModel<R: AppRouter> {
     
     private let tvShowsStore: TVShowsStore
     private var cancellables = Set<AnyCancellable>()
+    private var currentPage = 0
+    private var currentFilter: FilterTVShows = .popular
     
     private var tvShows = [TVShow]() {
         didSet {
@@ -35,7 +37,15 @@ final class HomeViewModel<R: AppRouter> {
 extension HomeViewModel: HomeViewModelRepresentable {
     func fetchTVShows(filter: FilterTVShows) {
         
-        tvShowsStore.fetchTVShowsBy(filter: filter, page: 1).sink { [unowned self] completion in
+        if currentFilter != filter {
+            tvShows.removeAll()
+            currentFilter = filter
+            currentPage = 1
+        } else {
+            currentPage += 1
+        }
+        
+        tvShowsStore.fetchTVShowsBy(filter: filter, page: currentPage).sink { [unowned self] completion in
             switch  completion {
             case .finished:
                 break
@@ -44,7 +54,7 @@ extension HomeViewModel: HomeViewModelRepresentable {
             }
         } receiveValue: { [unowned self] tvShows in
             DispatchQueue.main.async {
-                self.tvShows = tvShows
+                self.tvShows.append(contentsOf: tvShows)
             }
         }
         .store(in: &cancellables)

@@ -70,6 +70,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = UIColor(named: "Almost Black")
         title = "TV Shows"
         viewModel.fetchTVShows(filter: filterTVShow)
+        collectionView.delegate = self
         collectionView.backgroundColor = UIColor(named: "Almost Black")
         collectionView.collectionViewLayout = generateLayout()
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -118,5 +119,13 @@ class HomeViewController: UIViewController {
     @IBAction func filterTVShowValueChanged(_ sender: UISegmentedControl) {
         filterTVShow = FilterTVShows(rawValue: sender.selectedSegmentIndex) ?? .popular
     }
+}
 
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let numberOfItems = dataSource?.snapshot().numberOfItems,
+           indexPath.row == numberOfItems - 5 {
+            viewModel.fetchTVShows(filter: filterTVShow)
+        }
+    }
 }
