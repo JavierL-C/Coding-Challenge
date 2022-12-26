@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="collectionView" destination="xxX-Y6-ie5" id="yH8-kr-IbA"/>
                 <outlet property="filterTVShowsView" destination="7Dh-ML-Cpy" id="Fc5-EV-2Pv"/>
+                <outlet property="navigationBar" destination="Nx1-jw-qeJ" id="2xL-b9-d5C"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -80,7 +81,7 @@
                 </navigationBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="Secondary"/>
+            <color key="backgroundColor" name="Almost Black"/>
             <constraints>
                 <constraint firstItem="Nx1-jw-qeJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="6W9-O5-aFj"/>
                 <constraint firstItem="j4O-4M-dax" firstAttribute="top" secondItem="Nx1-jw-qeJ" secondAttribute="bottom" constant="10" id="7dS-Ek-bbg"/>
@@ -95,6 +96,9 @@
     </objects>
     <resources>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <namedColor name="Almost Black">
+            <color red="0.039215686274509803" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Secondary">
             <color red="0.10196078431372549" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

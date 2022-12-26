@@ -9,10 +9,11 @@ import UIKit
 import Combine
 import SwiftUI
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
-    @IBOutlet var filterTVShowsView: UISegmentedControl!
-    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet private var filterTVShowsView: UISegmentedControl!
+    @IBOutlet private var collectionView: UICollectionView!
+    @IBOutlet private var navigationBar: UINavigationBar!
     
     private enum Section: CaseIterable {
         case main
@@ -67,15 +68,15 @@ class HomeViewController: UIViewController {
     
     private func setUI() {
         filterTVShowsView.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-        view.backgroundColor = UIColor(named: "Almost Black")
         viewModel.fetchTVShows(filter: filterTVShow)
+        navigationBar.delegate = self
         collectionView.delegate = self
         collectionView.backgroundColor = UIColor(named: "Almost Black")
         collectionView.collectionViewLayout = generateLayout()
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         setUpDiffableDataSource()
     }
-    
+
     private func bindUI() {
         subscription = viewModel.tvShowsSubject.sink { _ in}
         receiveValue: { [unowned self] tvShows in
@@ -136,5 +137,11 @@ extension HomeViewController: UICollectionViewDelegate {
            indexPath.row == numberOfItems - 5 {
             viewModel.fetchTVShows(filter: filterTVShow)
         }
+    }
+}
+
+extension HomeViewController: UINavigationBarDelegate {
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }
