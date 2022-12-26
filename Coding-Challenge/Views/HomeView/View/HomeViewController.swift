@@ -120,7 +120,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func onClickOptionButton(_ sender: UIButton) {
-        var alert =  UIAlertController(title: "What do you want to do?", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        let alert =  UIAlertController(title: "What do you want to do?", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Log Out", style: UIAlertAction.Style.default, handler: { UIAlertAction in
             self.dismiss(animated: true)

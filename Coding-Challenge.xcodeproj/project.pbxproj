@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BA7F5F4295996530099A448 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7F5F3295996530099A448 /* ImageCache.swift */; };
 		3BA857632955FB7400847783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857622955FB7400847783 /* AppDelegate.swift */; };
 		3BA857652955FB7400847783 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857642955FB7400847783 /* SceneDelegate.swift */; };
 		3BA8576C2955FB7700847783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA8576B2955FB7700847783 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BA7F5F3295996530099A448 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		3BA8575F2955FB7400847783 /* Coding-Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coding-Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA857622955FB7400847783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BA857642955FB7400847783 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				3BA857D52957D77400847783 /* ImageLoader.swift */,
 				3BA857D72957D7A800847783 /* CustomAsyncImage.swift */,
+				3BA7F5F3295996530099A448 /* ImageCache.swift */,
 			);
 			path = AsyncImage;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BA7F5F4295996530099A448 /* ImageCache.swift in Sources */,
 				3BA857AD29561CE400847783 /* Failure.swift in Sources */,
 				3BA857B829565BC500847783 /* APIManager+Login.swift in Sources */,
 				3BA857D62957D77400847783 /* ImageLoader.swift in Sources */,
