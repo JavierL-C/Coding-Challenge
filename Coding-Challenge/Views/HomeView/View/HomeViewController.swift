@@ -68,7 +68,6 @@ class HomeViewController: UIViewController {
     private func setUI() {
         filterTVShowsView.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         view.backgroundColor = UIColor(named: "Almost Black")
-        title = "TV Shows"
         viewModel.fetchTVShows(filter: filterTVShow)
         collectionView.delegate = self
         collectionView.backgroundColor = UIColor(named: "Almost Black")
@@ -118,6 +117,16 @@ class HomeViewController: UIViewController {
     
     @IBAction func filterTVShowValueChanged(_ sender: UISegmentedControl) {
         filterTVShow = FilterTVShows(rawValue: sender.selectedSegmentIndex) ?? .popular
+    }
+    
+    @IBAction func onClickOptionButton(_ sender: UIButton) {
+        var alert =  UIAlertController(title: "What do you want to do?", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Log Out", style: UIAlertAction.Style.default, handler: { UIAlertAction in
+            self.dismiss(animated: true)
+        }))
+
+        self.present(alert, animated: true)
     }
 }
 

@@ -21,11 +21,11 @@ extension HomeCoordinator: Coordinator {
         let viewModel = HomeViewModel<R>()
         viewModel.router = router
         let homeViewController = HomeViewController(viewModel: viewModel)
-        homeViewController.modalPresentationStyle = .overFullScreen
+        homeViewController.modalPresentationStyle = .fullScreen
         return homeViewController
     }
     
     func start() {
-        router.navigationController.show(self.primaryViewController, sender: true)
+        router.navigationController.present(self.primaryViewController, animated: true)
     }
 }
