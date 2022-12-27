@@ -41,6 +41,10 @@
 		3BCA787D295A9FB300A376F4 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA787C295A9FB300A376F4 /* Creator.swift */; };
 		3BCA787F295AA0C000A376F4 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA787E295AA0C000A376F4 /* Actor.swift */; };
 		3BCA7883295AA1B100A376F4 /* APIManager+TVShowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA7882295AA1B100A376F4 /* APIManager+TVShowDetail.swift */; };
+		3BCA7886295ABABD00A376F4 /* TVShowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA7885295ABABD00A376F4 /* TVShowDetailViewModel.swift */; };
+		3BCA788B295ACD3900A376F4 /* TVShowSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA788A295ACD3900A376F4 /* TVShowSummaryView.swift */; };
+		3BCA788F295ACE2200A376F4 /* TVShowLastSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA788E295ACE2200A376F4 /* TVShowLastSeasonView.swift */; };
+		3BCA7891295ACF1800A376F4 /* TVShowCastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA7890295ACF1800A376F4 /* TVShowCastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +103,10 @@
 		3BCA787C295A9FB300A376F4 /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
 		3BCA787E295AA0C000A376F4 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		3BCA7882295AA1B100A376F4 /* APIManager+TVShowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+TVShowDetail.swift"; sourceTree = "<group>"; };
+		3BCA7885295ABABD00A376F4 /* TVShowDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailViewModel.swift; sourceTree = "<group>"; };
+		3BCA788A295ACD3900A376F4 /* TVShowSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSummaryView.swift; sourceTree = "<group>"; };
+		3BCA788E295ACE2200A376F4 /* TVShowLastSeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowLastSeasonView.swift; sourceTree = "<group>"; };
+		3BCA7890295ACF1800A376F4 /* TVShowCastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowCastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,7 @@
 		3BA7F5F8295A498D0099A448 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				3BCA7884295ABA9600A376F4 /* ViewModel */,
 				3BA7F5FB295A49B60099A448 /* View */,
 				3BA7F5F9295A49AE0099A448 /* DetailCoordinator.swift */,
 			);
@@ -138,6 +147,7 @@
 		3BA7F5FB295A49B60099A448 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3BCA7887295ACCE500A376F4 /* Components */,
 				3BA7F5FE295A4A6B0099A448 /* TVShowDetailView.swift */,
 			);
 			path = View;
@@ -354,6 +364,24 @@
 			path = AsyncImage;
 			sourceTree = "<group>";
 		};
+		3BCA7884295ABA9600A376F4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3BCA7885295ABABD00A376F4 /* TVShowDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3BCA7887295ACCE500A376F4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3BCA788A295ACD3900A376F4 /* TVShowSummaryView.swift */,
+				3BCA788E295ACE2200A376F4 /* TVShowLastSeasonView.swift */,
+				3BCA7890295ACF1800A376F4 /* TVShowCastView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -485,6 +513,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BCA7891295ACF1800A376F4 /* TVShowCastView.swift in Sources */,
+				3BCA788B295ACD3900A376F4 /* TVShowSummaryView.swift in Sources */,
 				3BA7F5F4295996530099A448 /* ImageCache.swift in Sources */,
 				3BA857AD29561CE400847783 /* Failure.swift in Sources */,
 				3BA857B829565BC500847783 /* APIManager+Login.swift in Sources */,
@@ -492,7 +522,9 @@
 				3BA8579F29560C5600847783 /* LoginCoordinator.swift in Sources */,
 				3BA857CB2957A07E00847783 /* HomeViewModel.swift in Sources */,
 				3BCA787D295A9FB300A376F4 /* Creator.swift in Sources */,
+				3BCA788F295ACE2200A376F4 /* TVShowLastSeasonView.swift in Sources */,
 				3BA857CF2957B47600847783 /* TVShow.swift in Sources */,
+				3BCA7886295ABABD00A376F4 /* TVShowDetailViewModel.swift in Sources */,
 				3BA857B029562CE100847783 /* LoginViewModel.swift in Sources */,
 				3BA857AA29561A6B00847783 /* APIManager.swift in Sources */,
 				3BA857C729579D6400847783 /* HomeViewController.swift in Sources */,

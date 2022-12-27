@@ -145,7 +145,8 @@ extension HomeViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.didTapItem()
+        guard let tvShow = dataSource?.itemIdentifier(for: indexPath) else { return }
+        viewModel.didTapItem(model: tvShow)
     }
 }
 

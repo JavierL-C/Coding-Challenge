@@ -31,7 +31,8 @@ extension APIManager: TVShowDetailStore {
                     let jsonDataCreators = try JSONSerialization.data(withJSONObject: json["created_by"] as! [[String: Any]], options: .prettyPrinted)
         
                     let decoder = JSONDecoder()
-                    let seasons = try decoder.decode([Season].self, from: jsonDataSeasons)
+                    var seasons = try decoder.decode([Season].self, from: jsonDataSeasons)
+                    seasons.sort { $0.seasonNumber < $1.seasonNumber }
                     let creators = try decoder.decode([Creator].self, from: jsonDataCreators)
                     
                     promise(.success((seasons, creators)))

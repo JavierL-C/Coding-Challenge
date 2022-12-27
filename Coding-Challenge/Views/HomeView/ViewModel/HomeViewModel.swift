@@ -10,7 +10,7 @@ import Combine
 
 protocol HomeViewModelRepresentable {
     func fetchTVShows(filter: FilterTVShows)
-    func didTapItem()
+    func didTapItem(model: TVShow)
     func logOut()
     func setNavigationBarHidden()
     var tvShowsSubject: PassthroughSubject<[TVShow], Failure> { get }
@@ -63,8 +63,8 @@ extension HomeViewModel: HomeViewModelRepresentable {
         .store(in: &cancellables)
     }
     
-    func didTapItem() {
-        router?.process(route: .showDetailScreen)
+    func didTapItem(model: TVShow) {
+        router?.process(route: .showDetailScreen(model: model))
     }
     
     func logOut() {
