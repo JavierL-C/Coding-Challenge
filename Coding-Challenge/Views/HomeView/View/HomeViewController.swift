@@ -66,6 +66,11 @@ final class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.setNavigationBarHidden()
+    }
+    
     private func setUI() {
         filterTVShowsView.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         viewModel.fetchTVShows(filter: filterTVShow)
@@ -123,8 +128,8 @@ final class HomeViewController: UIViewController {
     @IBAction func onClickOptionButton(_ sender: UIButton) {
         let alert =  UIAlertController(title: "What do you want to do?", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Log Out", style: UIAlertAction.Style.default, handler: { UIAlertAction in
-            self.dismiss(animated: true)
+        alert.addAction(UIAlertAction(title: "Log Out", style: UIAlertAction.Style.default, handler: { [unowned self] UIAlertAction in
+            viewModel.logOut()
         }))
 
         self.present(alert, animated: true)
@@ -137,6 +142,10 @@ extension HomeViewController: UICollectionViewDelegate {
            indexPath.row == numberOfItems - 5 {
             viewModel.fetchTVShows(filter: filterTVShow)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didTapItem()
     }
 }
 
