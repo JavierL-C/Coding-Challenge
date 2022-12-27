@@ -24,6 +24,6 @@ extension LoginCoordinator: Coordinator {
     }
     
     func start() {
-        router.navigationController.show(primaryViewController, sender: true)
+        router.navigationController.setViewControllers([primaryViewController], animated: true)
     }
 }

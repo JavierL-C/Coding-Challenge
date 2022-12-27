@@ -12,7 +12,7 @@ import Combine
 final class APIManager {
     static let baseServiceURL = "https://api.themoviedb.org/3/"
     static let apiKey = "b60f6e6a79a5b0ba7002d8dad8e72d8a"
-    static let baseServiceImageURL = "https://image.tmdb.org/t/p/w500"
+    static let baseServiceImageURL = "https://image.tmdb.org/t/p/original"
 
     static func buildURL(path: String, queryItems: [String: String] = [:]) -> URL? {
         var urlComponents = URLComponents(string: baseServiceURL + path)
