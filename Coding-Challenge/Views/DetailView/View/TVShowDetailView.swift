@@ -39,10 +39,16 @@ struct TVShowDetailView: View {
                         TVShowSummaryView(title: tvShow.name, summary: tvShow.overview, creators: viewModel.tvShowCreators, voteAverage: tvShow.voteAverage)
                     
                         if !viewModel.tvShowSeasons.isEmpty {
-                            TVShowLastSeasonView(seasons: viewModel.tvShowSeasons, posterURL: tvShow.backgroundURL)
+                            TVShowLastSeasonView(seasons: viewModel.tvShowSeasons)
+                        } else {
+                            LoadingView()
                         }
                         
-                        TVShowCastView(cast: viewModel.tvShowCast)
+                        if !viewModel.tvShowCast.isEmpty {
+                            TVShowCastView(cast: viewModel.tvShowCast)
+                        } else {
+                            LoadingView()
+                        }
     
                     }
                     .background(Color("Secondary"))
