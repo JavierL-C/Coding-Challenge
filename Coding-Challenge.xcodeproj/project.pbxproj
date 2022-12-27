@@ -40,6 +40,7 @@
 		3BCA787B295A9EA000A376F4 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA787A295A9EA000A376F4 /* Season.swift */; };
 		3BCA787D295A9FB300A376F4 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA787C295A9FB300A376F4 /* Creator.swift */; };
 		3BCA787F295AA0C000A376F4 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA787E295AA0C000A376F4 /* Actor.swift */; };
+		3BCA7883295AA1B100A376F4 /* APIManager+TVShowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA7882295AA1B100A376F4 /* APIManager+TVShowDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		3BCA787A295A9EA000A376F4 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		3BCA787C295A9FB300A376F4 /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
 		3BCA787E295AA0C000A376F4 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
+		3BCA7882295AA1B100A376F4 /* APIManager+TVShowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+TVShowDetail.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 				3BA857A929561A6B00847783 /* APIManager.swift */,
 				3BA857B729565BC500847783 /* APIManager+Login.swift */,
 				3BA857CC2957B16800847783 /* APIManager+TVShow.swift */,
+				3BCA7882295AA1B100A376F4 /* APIManager+TVShowDetail.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				3BCA787F295AA0C000A376F4 /* Actor.swift in Sources */,
 				3BA857632955FB7400847783 /* AppDelegate.swift in Sources */,
 				3BA857D22957C9FF00847783 /* TVShowCellView.swift in Sources */,
+				3BCA7883295AA1B100A376F4 /* APIManager+TVShowDetail.swift in Sources */,
 				3BA8579929560B1100847783 /* AppTransition.swift in Sources */,
 				3BCA787B295A9EA000A376F4 /* Season.swift in Sources */,
 				3BA857D82957D7A800847783 /* CustomAsyncImage.swift in Sources */,
