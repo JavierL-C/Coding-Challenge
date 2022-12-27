@@ -31,6 +31,6 @@ extension DetailCoordinator: Coordinator {
         router.navigationController.navigationBar.tintColor = .white
         router.navigationController.setNavigationBarHidden(false, animated: true)
         router.navigationController.navigationBar.isTranslucent = false
-        router.navigationController.navigationBar.backgroundColor = UIColor(named: "Almost Black")
+        router.navigationController.navigationBar.barTintColor = UIColor(named: "Almost Black")
     }
 }

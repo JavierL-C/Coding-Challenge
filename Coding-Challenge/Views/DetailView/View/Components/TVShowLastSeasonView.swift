@@ -10,7 +10,6 @@ import SwiftUI
 struct TVShowLastSeasonView: View {
     
     var seasons: [Season]
-    var posterURL: URL?
     
     var body: some View {
         VStack(spacing: 15) {
