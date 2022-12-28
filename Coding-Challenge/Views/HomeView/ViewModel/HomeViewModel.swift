@@ -57,7 +57,8 @@ extension HomeViewModel: HomeViewModelRepresentable {
             }
         } receiveValue: { [unowned self] tvShows in
             DispatchQueue.main.async {
-                self.tvShows.append(contentsOf: tvShows)
+                guard let setTVShows = NSOrderedSet(array: self.tvShows + tvShows).array as? [TVShow] else { return }
+                self.tvShows = setTVShows
             }
         }
         .store(in: &cancellables)

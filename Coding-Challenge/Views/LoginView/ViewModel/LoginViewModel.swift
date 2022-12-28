@@ -24,6 +24,7 @@ final class LoginViewModel<R: AppRouter>: ObservableObject {
     @Published var password = ""
     @Published var isLoading = false
     @Published var isLoginFail = false
+    @Published var isLoginSuccess = false
     
     init(loginStore: LoginStore = APIManager()) {
         self.loginStore = loginStore
@@ -40,6 +41,10 @@ extension LoginViewModel: LoginViewModelRepresentable {
                     case .finished:
                         break
                     case .failure(let failure):
+                        DispatchQueue.main.async { [weak self] in
+                            self?.isLoading = false
+                            self?.isLoginFail = true
+                        }
                         print("something went wrong " + failure.localizedDescription)
                         break
                 }
@@ -59,19 +64,18 @@ extension LoginViewModel: LoginViewModelRepresentable {
                         break
                     case .failure(let failure):
                         print("something went wrong " + failure.localizedDescription)
-                        DispatchQueue.main.async { [unowned self] in
-                            isLoginFail = true
-                            isLoading = false
+                        DispatchQueue.main.async { [weak self] in
+                            self?.isLoginFail = true
+                            self?.isLoading = false
                         }
                         break
                 }
             } receiveValue: { [unowned self] requestToken in
                 defaults.setValue(requestToken.token, forKey: "token")
                 defaults.setValue(requestToken.expiresAt, forKey: "expires")
-                DispatchQueue.main.async { [unowned self] in
-                    password = ""
-                    isLoading = false
-                    showHomeView()
+                DispatchQueue.main.async { [weak self] in
+                    self?.isLoading = false
+                    self?.isLoginSuccess = true
                 }
             }
             .store(in: &cancellables)

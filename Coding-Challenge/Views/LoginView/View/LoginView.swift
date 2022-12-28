@@ -11,6 +11,7 @@ import Combine
 struct LoginView<R: AppRouter>: View {
     
     @StateObject var viewModel = LoginViewModel<R>()
+    @State private var subscription: AnyCancellable?
     private var router: R?
     
     init(router: R) {
@@ -52,12 +53,17 @@ struct LoginView<R: AppRouter>: View {
                         Button(action: {
                             viewModel.router = router
                             viewModel.requestToken()
+                            subscription = viewModel.$isLoginSuccess.sink(receiveValue: { isloginSuccess in
+                                if isloginSuccess {
+                                    viewModel.showHomeView()
+                                    subscription?.cancel()
+                                }
+                            })
                         }) {
                             Text("Log in")
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .font(.system(size: 25, weight: .bold))
                                 .foregroundColor(.white)
-                                
                         }
                         .frame(width: 300, height: 60)
                         .background(Color("Primary"))
@@ -65,20 +71,21 @@ struct LoginView<R: AppRouter>: View {
                     }
                 )
             
-            if viewModel.isLoading { LoadingView() }
+            if viewModel.isLoading { LoadingView(scale: 3) }
         }
         .alert(isPresented: $viewModel.isLoginFail) {
             Alert(
                 title: Text("Error"),
                 message: Text("User name or password are incorrect"),
-                dismissButton: .default(Text("Ok")) {
-                    viewModel.isLoginFail = false
-            })
+                dismissButton: .default(Text("Ok")))
         }
     }
 }
 
 struct LoadingView: View {
+    
+    var scale: Double
+    
     var body: some View {
         Color(.systemBackground)
             .ignoresSafeArea()
@@ -86,6 +93,6 @@ struct LoadingView: View {
         
         ProgressView()
             .progressViewStyle(CircularProgressViewStyle(tint: .green))
-            .scaleEffect(3)
+            .scaleEffect(scale)
     }
 }

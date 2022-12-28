@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B854D20295BDC7B00C305B5 /* APIManagerMock+TVShowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B854D1F295BDC7B00C305B5 /* APIManagerMock+TVShowDetail.swift */; };
+		3B854D23295BDE1E00C305B5 /* tvShowSeasons.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B854D21295BDD9500C305B5 /* tvShowSeasons.json */; };
+		3B854D24295BDE1E00C305B5 /* tvShowCreators.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B854D22295BDDD900C305B5 /* tvShowCreators.json */; };
+		3B854D26295BE20800C305B5 /* TVShowDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B854D25295BE20800C305B5 /* TVShowDetailViewModelTest.swift */; };
 		3BA7F5F4295996530099A448 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7F5F3295996530099A448 /* ImageCache.swift */; };
 		3BA7F5FA295A49AE0099A448 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7F5F9295A49AE0099A448 /* DetailCoordinator.swift */; };
 		3BA7F5FF295A4A6B0099A448 /* TVShowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7F5FE295A4A6B0099A448 /* TVShowDetailView.swift */; };
@@ -14,7 +18,6 @@
 		3BA857652955FB7400847783 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857642955FB7400847783 /* SceneDelegate.swift */; };
 		3BA8576C2955FB7700847783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA8576B2955FB7700847783 /* Assets.xcassets */; };
 		3BA8576F2955FB7700847783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA8576D2955FB7700847783 /* LaunchScreen.storyboard */; };
-		3BA8577A2955FB7700847783 /* Coding_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857792955FB7700847783 /* Coding_ChallengeTests.swift */; };
 		3BA857842955FB7700847783 /* Coding_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857832955FB7700847783 /* Coding_ChallengeUITests.swift */; };
 		3BA857862955FB7700847783 /* Coding_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA857852955FB7700847783 /* Coding_ChallengeUITestsLaunchTests.swift */; };
 		3BA8579429560AB000847783 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8579329560AB000847783 /* Coordinator.swift */; };
@@ -45,6 +48,13 @@
 		3BCA788B295ACD3900A376F4 /* TVShowSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA788A295ACD3900A376F4 /* TVShowSummaryView.swift */; };
 		3BCA788F295ACE2200A376F4 /* TVShowLastSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA788E295ACE2200A376F4 /* TVShowLastSeasonView.swift */; };
 		3BCA7891295ACF1800A376F4 /* TVShowCastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA7890295ACF1800A376F4 /* TVShowCastView.swift */; };
+		3BCA7894295BA3B600A376F4 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA7893295BA3B600A376F4 /* APIManagerMock.swift */; };
+		3BCA78A3295BC17100A376F4 /* LoginViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA78A2295BC17100A376F4 /* LoginViewModelTest.swift */; };
+		3BCA78A4295BCECE00A376F4 /* requestToken.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA789D295BA52000A376F4 /* requestToken.json */; };
+		3BCA78A5295BCECE00A376F4 /* tvShows.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA789E295BBDA600A376F4 /* tvShows.json */; };
+		3BCA78A7295BCECE00A376F4 /* tvShowCast.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA78A0295BC04A00A376F4 /* tvShowCast.json */; };
+		3BCA78A9295BD10F00A376F4 /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA78A8295BD10F00A376F4 /* HomeViewModelTest.swift */; };
+		3BCA78AB295BD1A800A376F4 /* APIManagerMock+TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA78AA295BD1A800A376F4 /* APIManagerMock+TVShow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +75,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B854D1F295BDC7B00C305B5 /* APIManagerMock+TVShowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManagerMock+TVShowDetail.swift"; sourceTree = "<group>"; };
+		3B854D21295BDD9500C305B5 /* tvShowSeasons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tvShowSeasons.json; sourceTree = "<group>"; };
+		3B854D22295BDDD900C305B5 /* tvShowCreators.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tvShowCreators.json; sourceTree = "<group>"; };
+		3B854D25295BE20800C305B5 /* TVShowDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailViewModelTest.swift; sourceTree = "<group>"; };
 		3BA7F5F3295996530099A448 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		3BA7F5F9295A49AE0099A448 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		3BA7F5FE295A4A6B0099A448 /* TVShowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailView.swift; sourceTree = "<group>"; };
@@ -75,7 +89,6 @@
 		3BA8576E2955FB7700847783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BA857702955FB7700847783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BA857752955FB7700847783 /* Coding-ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coding-ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3BA857792955FB7700847783 /* Coding_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coding_ChallengeTests.swift; sourceTree = "<group>"; };
 		3BA8577F2955FB7700847783 /* Coding-ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coding-ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA857832955FB7700847783 /* Coding_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coding_ChallengeUITests.swift; sourceTree = "<group>"; };
 		3BA857852955FB7700847783 /* Coding_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coding_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -107,6 +120,13 @@
 		3BCA788A295ACD3900A376F4 /* TVShowSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSummaryView.swift; sourceTree = "<group>"; };
 		3BCA788E295ACE2200A376F4 /* TVShowLastSeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowLastSeasonView.swift; sourceTree = "<group>"; };
 		3BCA7890295ACF1800A376F4 /* TVShowCastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowCastView.swift; sourceTree = "<group>"; };
+		3BCA7893295BA3B600A376F4 /* APIManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
+		3BCA789D295BA52000A376F4 /* requestToken.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = requestToken.json; sourceTree = "<group>"; };
+		3BCA789E295BBDA600A376F4 /* tvShows.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tvShows.json; sourceTree = "<group>"; };
+		3BCA78A0295BC04A00A376F4 /* tvShowCast.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tvShowCast.json; sourceTree = "<group>"; };
+		3BCA78A2295BC17100A376F4 /* LoginViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTest.swift; sourceTree = "<group>"; };
+		3BCA78A8295BD10F00A376F4 /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
+		3BCA78AA295BD1A800A376F4 /* APIManagerMock+TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManagerMock+TVShow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +215,11 @@
 		3BA857782955FB7700847783 /* Coding-ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				3BA857792955FB7700847783 /* Coding_ChallengeTests.swift */,
+				3BCA7896295BA42F00A376F4 /* Resources */,
+				3BCA7892295BA39A00A376F4 /* Mocks */,
+				3BCA78A2295BC17100A376F4 /* LoginViewModelTest.swift */,
+				3BCA78A8295BD10F00A376F4 /* HomeViewModelTest.swift */,
+				3B854D25295BE20800C305B5 /* TVShowDetailViewModelTest.swift */,
 			);
 			path = "Coding-ChallengeTests";
 			sourceTree = "<group>";
@@ -382,6 +406,28 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		3BCA7892295BA39A00A376F4 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3BCA7893295BA3B600A376F4 /* APIManagerMock.swift */,
+				3BCA78AA295BD1A800A376F4 /* APIManagerMock+TVShow.swift */,
+				3B854D1F295BDC7B00C305B5 /* APIManagerMock+TVShowDetail.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3BCA7896295BA42F00A376F4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3BCA789D295BA52000A376F4 /* requestToken.json */,
+				3BCA789E295BBDA600A376F4 /* tvShows.json */,
+				3BCA78A0295BC04A00A376F4 /* tvShowCast.json */,
+				3B854D21295BDD9500C305B5 /* tvShowSeasons.json */,
+				3B854D22295BDDD900C305B5 /* tvShowCreators.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -496,6 +542,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B854D23295BDE1E00C305B5 /* tvShowSeasons.json in Resources */,
+				3B854D24295BDE1E00C305B5 /* tvShowCreators.json in Resources */,
+				3BCA78A4295BCECE00A376F4 /* requestToken.json in Resources */,
+				3BCA78A5295BCECE00A376F4 /* tvShows.json in Resources */,
+				3BCA78A7295BCECE00A376F4 /* tvShowCast.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,7 +603,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BA8577A2955FB7700847783 /* Coding_ChallengeTests.swift in Sources */,
+				3B854D20295BDC7B00C305B5 /* APIManagerMock+TVShowDetail.swift in Sources */,
+				3BCA78A9295BD10F00A376F4 /* HomeViewModelTest.swift in Sources */,
+				3BCA78A3295BC17100A376F4 /* LoginViewModelTest.swift in Sources */,
+				3BCA7894295BA3B600A376F4 /* APIManagerMock.swift in Sources */,
+				3B854D26295BE20800C305B5 /* TVShowDetailViewModelTest.swift in Sources */,
+				3BCA78AB295BD1A800A376F4 /* APIManagerMock+TVShow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +827,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 63T99KDUV2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Coding-Challenge.Coding-ChallengeApplaudo.Coding-ChallengeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -791,7 +847,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 63T99KDUV2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Coding-Challenge.Coding-ChallengeApplaudo.Coding-ChallengeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
