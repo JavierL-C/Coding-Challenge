@@ -41,13 +41,15 @@ struct TVShowDetailView: View {
                         if !viewModel.tvShowSeasons.isEmpty {
                             TVShowLastSeasonView(seasons: viewModel.tvShowSeasons)
                         } else {
-                            LoadingView()
+                            LoadingView(scale: 1)
                         }
                         
                         if !viewModel.tvShowCast.isEmpty {
                             TVShowCastView(cast: viewModel.tvShowCast)
+                                .padding(5)
                         } else {
-                            LoadingView()
+                            LoadingView(scale: 1)
+                                .padding(5)
                         }
     
                     }

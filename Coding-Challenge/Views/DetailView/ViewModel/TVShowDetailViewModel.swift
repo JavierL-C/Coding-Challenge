@@ -35,10 +35,10 @@ extension TVShowDetailViewModel {
                         print("some thing went wrong" + failure.localizedDescription)
                         break
                 }
-            } receiveValue: { [unowned self] (season: [Season], creators: [Creator]) in
-                DispatchQueue.main.async {
-                    self.tvShowCreators = creators
-                    self.tvShowSeasons = season
+            } receiveValue: { [weak self] (season: [Season], creators: [Creator]) in
+                DispatchQueue.main.async { [weak self] in
+                    self?.tvShowCreators = creators
+                    self?.tvShowSeasons = season
                 }
             }.store(in: &cancellables)
     }
@@ -53,9 +53,9 @@ extension TVShowDetailViewModel {
                         print("some thing went wrong" + failure.localizedDescription)
                         break
                 }
-            } receiveValue: { [unowned self] cast in
-                DispatchQueue.main.async {
-                    self.tvShowCast = cast
+            } receiveValue: { [weak self] cast in
+                DispatchQueue.main.async { [weak self] in
+                    self?.tvShowCast = cast
                 }
             }.store(in: &cancellables)
     }

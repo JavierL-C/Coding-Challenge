@@ -41,8 +41,10 @@ extension LoginViewModel: LoginViewModelRepresentable {
                     case .finished:
                         break
                     case .failure(let failure):
-                        self.isLoading = false
-                        self.isLoginFail = true
+                        DispatchQueue.main.async { [weak self] in
+                            self?.isLoading = false
+                            self?.isLoginFail = true
+                        }
                         print("something went wrong " + failure.localizedDescription)
                         break
                 }
@@ -62,22 +64,24 @@ extension LoginViewModel: LoginViewModelRepresentable {
                         break
                     case .failure(let failure):
                         print("something went wrong " + failure.localizedDescription)
-                        isLoginFail = true
-                        isLoading = false                        
+                        DispatchQueue.main.async { [weak self] in
+                            self?.isLoginFail = true
+                            self?.isLoading = false
+                        }
                         break
                 }
             } receiveValue: { [unowned self] requestToken in
                 defaults.setValue(requestToken.token, forKey: "token")
                 defaults.setValue(requestToken.expiresAt, forKey: "expires")
-                isLoading = false
-                isLoginSuccess = true
+                DispatchQueue.main.async { [weak self] in
+                    self?.isLoading = false
+                    self?.isLoginSuccess = true
+                }
             }
             .store(in: &cancellables)
     }
     
     func showHomeView() {
-        DispatchQueue.main.async { [unowned self] in
-            router?.process(route: .showHomeScreen)
-        }
+        router?.process(route: .showHomeScreen)
     }
 }

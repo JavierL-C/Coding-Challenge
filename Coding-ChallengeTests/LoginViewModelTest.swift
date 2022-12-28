@@ -35,7 +35,7 @@ final class LoginViewModelTests: XCTestCase {
         viewModel.userName = "javier"
         viewModel.password = "123456"
 
-        viewModel.$isLoginSuccess.sink { _ in
+        viewModel.$isLoginSuccess.dropFirst().sink { _ in
 
         } receiveValue: { login in
             loginSuccess = login
@@ -55,7 +55,7 @@ final class LoginViewModelTests: XCTestCase {
         viewModel.userName = ""
         viewModel.password = ""
 
-        viewModel.$isLoginFail.sink { _ in
+        viewModel.$isLoginFail.dropFirst().sink { _ in
 
         } receiveValue: { login in
             loginFail = login
