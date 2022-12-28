@@ -40,6 +40,8 @@ extension LoginViewModel: LoginViewModelRepresentable {
                     case .finished:
                         break
                     case .failure(let failure):
+                        self.isLoading = false
+                        self.isLoginFail = true
                         print("something went wrong " + failure.localizedDescription)
                         break
                 }
@@ -59,10 +61,8 @@ extension LoginViewModel: LoginViewModelRepresentable {
                         break
                     case .failure(let failure):
                         print("something went wrong " + failure.localizedDescription)
-                        DispatchQueue.main.async { [unowned self] in
-                            isLoginFail = true
-                            isLoading = false
-                        }
+                        isLoginFail = true
+                        isLoading = false                        
                         break
                 }
             } receiveValue: { [unowned self] requestToken in
