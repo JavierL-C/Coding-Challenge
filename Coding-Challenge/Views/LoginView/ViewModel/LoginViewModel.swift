@@ -24,6 +24,7 @@ final class LoginViewModel<R: AppRouter>: ObservableObject {
     @Published var password = ""
     @Published var isLoading = false
     @Published var isLoginFail = false
+    @Published var isLoginSuccess = false
     
     init(loginStore: LoginStore = APIManager()) {
         self.loginStore = loginStore
@@ -68,16 +69,15 @@ extension LoginViewModel: LoginViewModelRepresentable {
             } receiveValue: { [unowned self] requestToken in
                 defaults.setValue(requestToken.token, forKey: "token")
                 defaults.setValue(requestToken.expiresAt, forKey: "expires")
-                DispatchQueue.main.async { [unowned self] in
-                    password = ""
-                    isLoading = false
-                    showHomeView()
-                }
+                isLoading = false
+                isLoginSuccess = true
             }
             .store(in: &cancellables)
     }
     
     func showHomeView() {
-        router?.process(route: .showHomeScreen)
+        DispatchQueue.main.async { [unowned self] in
+            router?.process(route: .showHomeScreen)
+        }
     }
 }

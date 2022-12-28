@@ -23,17 +23,37 @@ final class LoginViewModelTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
+        try super.tearDownWithError()
         loginStore = nil
         viewModel = nil
-        try super.tearDownWithError()
     }
     
-    func testLogin() throws {
+    func testLoginSuccessFull() throws {
         let loadLogin = XCTestExpectation(description: "Load Login")
-        var loginFail = true
+        var loginSuccess = false
         
         viewModel.userName = "javier"
         viewModel.password = "123456"
+
+        viewModel.$isLoginSuccess.sink { _ in
+
+        } receiveValue: { login in
+            loginSuccess = login
+            loadLogin.fulfill()
+        }.store(in: &cancellables)
+        
+        viewModel.requestToken()
+        
+        wait(for: [loadLogin], timeout: 1)
+        XCTAssertTrue(loginSuccess)
+    }
+    
+    func testLoginFail() throws {
+        let loadLogin = XCTestExpectation(description: "Load Login")
+        var loginFail = false
+        
+        viewModel.userName = ""
+        viewModel.password = ""
 
         viewModel.$isLoginFail.sink { _ in
 
@@ -45,6 +65,6 @@ final class LoginViewModelTests: XCTestCase {
         viewModel.requestToken()
         
         wait(for: [loadLogin], timeout: 1)
-        XCTAssertFalse(loginFail)
+        XCTAssertTrue(loginFail)
     }
 }
